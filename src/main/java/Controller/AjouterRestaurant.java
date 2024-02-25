@@ -40,7 +40,7 @@ public class AjouterRestaurant {
         try {
             restaurantService.ajouter(restaurant);
             Alert alert=new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("le restaurant ajoutée 2");
+            alert.setContentText("le restaurant ajoutée ");
             alert.show();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Restaurantinfo.fxml"));
             try {
