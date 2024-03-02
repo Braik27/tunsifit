@@ -26,12 +26,14 @@ public class RestaurantService implements IService<Restaurant> {
         Statement statement = connection.createStatement();
         statement.executeUpdate(sql);*/
 
-        String req = "INSERT INTO restaurant (nom,adresse,type) values(?,?,?)";
+        String req = "INSERT INTO restaurant (nom,adresse,type,img) values(?,?,?,?)";
         try {
         pst = connection.prepareStatement(req);
         pst.setString(1, restaurant.getNom());
         pst.setString(2, restaurant.getAdresse());
         pst.setString(3, restaurant.getType());
+            pst.setString(4, restaurant.getImg());
+
         pst.execute();
         } catch (SQLException ex) {
             Logger.getLogger(RestaurantService.class.getName()).log(Level.SEVERE, null, ex);
@@ -41,12 +43,13 @@ public class RestaurantService implements IService<Restaurant> {
 
     @Override
     public void modifier(Restaurant restaurant) throws SQLException {
-        String sql = "update restaurant set nom = ?, adresse = ?, type = ? where id = ?";
+        String sql = "update restaurant set nom = ?, adresse = ?, type = ?, img = ? where id = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1, restaurant.getNom());
         preparedStatement.setString(2, restaurant.getAdresse());
         preparedStatement.setString(3,restaurant.getType());
         preparedStatement.setInt(4,restaurant.getId());
+        preparedStatement.setString(5,restaurant.getImg());
         preparedStatement.executeUpdate();
 
     }
@@ -73,6 +76,7 @@ public class RestaurantService implements IService<Restaurant> {
             r.setAdresse(rs.getString("adresse"));
             r.setNom(rs.getString("nom"));
             r.setType(rs.getString("type"));
+            r.setImg(rs.getString("img"));
             list.add(r);
 
         }

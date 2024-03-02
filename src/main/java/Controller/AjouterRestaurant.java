@@ -1,4 +1,4 @@
-package Controller;
+/*package Controller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -40,7 +40,7 @@ public class AjouterRestaurant {
         try {
             restaurantService.ajouter(restaurant);
             Alert alert=new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("le restaurant ajoutée avec succé");
+            alert.setContentText("le restaurant ajoutée avec succés");
             alert.show();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Restaurantinfo.fxml"));
             try {
@@ -49,6 +49,7 @@ public class AjouterRestaurant {
                 restaurantinfo.setNomtextfield(nomtextfield.getText());
                 restaurantinfo.setAdressetextfield(adressetextfield.getText());
                 restaurantinfo.setTypetextfield(typetextfield.getText());
+                nomtextfield.getScene().setRoot(root);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -67,3 +68,4 @@ public class AjouterRestaurant {
     }
 
 }
+*/
